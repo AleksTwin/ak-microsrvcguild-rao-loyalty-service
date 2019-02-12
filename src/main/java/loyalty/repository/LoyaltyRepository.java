@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @author aleksey.kovalenko@accenture.com
  */
 @Repository
-public interface LoyaltyRepository extends CrudRepository<LoyaltyDomain, Integer> {
+public interface LoyaltyRepository extends CrudRepository<LoyaltyDomain, Long> {
 
     LoyaltyDomain findByUuid(String uuid);
 }

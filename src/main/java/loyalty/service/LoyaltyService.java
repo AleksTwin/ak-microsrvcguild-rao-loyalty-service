@@ -1,6 +1,6 @@
 package loyalty.service;
 
-import java.util.UUID;
+import java.util.Optional;
 
 import loyalty.model.LoyaltyDTO;
 import loyalty.repository.LoyaltyRepository;
@@ -14,22 +14,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoyaltyService {
 
-    private static String uuid = UUID.randomUUID().toString();
-
     @Autowired
     private LoyaltyRepository loyaltyRepository;
 
 
-    public void store() {
-        loyaltyRepository.save(new LoyaltyDomain(uuid, 666223));
+    public void initialize() {
+        String uuid1 = "b0bceb97-edfa-4b59-9255-16a2733404e4";
+        loyaltyRepository.save(new LoyaltyDomain(uuid1, 50));
+
+        String uuid2 = "12d0c490-0f2e-429a-a376-30669146f422";
+        loyaltyRepository.save(new LoyaltyDomain(uuid2, 120));
+
+        String uuid3 = "2c126d5a-96bb-441a-89b0-3a87bba4c6cc";
+        loyaltyRepository.save(new LoyaltyDomain(uuid3, 250));
     }
 
-    public LoyaltyDTO getLoyalty() {
-        LoyaltyDomain ld = loyaltyRepository.findByUuid(uuid);
+    public LoyaltyDTO getLoyalty(String asd) {
+        Optional<LoyaltyDomain> ld = Optional.ofNullable(loyaltyRepository.findByUuid(asd));
 
         LoyaltyDTO loyaltyDTO = new LoyaltyDTO();
-        loyaltyDTO.setUuid(ld.getUuid());
-        loyaltyDTO.setLoyaltyPoints(ld.getLoyaltyPoints());
+        ld.ifPresent((domain) -> {
+            loyaltyDTO.setUuid(domain.getUuid());
+            loyaltyDTO.setLoyaltyPoints(domain.getLoyaltyPoints());
+        });
 
         return loyaltyDTO;
     }

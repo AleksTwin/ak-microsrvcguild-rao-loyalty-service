@@ -13,7 +13,7 @@ public class Application {
 
     public Application(LoyaltyService service) {
         this.service = service;
-        this.service.store();
+        this.service.initialize();
     }
 
     public static void main(String[] args) {

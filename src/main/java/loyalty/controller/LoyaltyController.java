@@ -5,6 +5,7 @@ import loyalty.model.LoyaltyDTO;
 import loyalty.service.LoyaltyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,9 +21,8 @@ public class LoyaltyController {
     private LoyaltyService service;
 
 
-    @GetMapping(produces = "application/json")
-    public LoyaltyDTO getLoyalty() {
-//        service.store();
-        return service.getLoyalty();
+    @GetMapping(value = "/{uuid}", produces = "application/json")
+    public LoyaltyDTO getLoyalty(@PathVariable(value = "uuid") String userId) {
+        return service.getLoyalty(userId);
     }
 }
