@@ -20,13 +20,13 @@ public class LoyaltyService {
 
     public void initialize() {
         String uuid1 = "b0bceb97-edfa-4b59-9255-16a2733404e4";
-        loyaltyRepository.save(new LoyaltyDomain(uuid1, 50));
+        loyaltyRepository.save(new LoyaltyDomain(uuid1, 25));
 
         String uuid2 = "12d0c490-0f2e-429a-a376-30669146f422";
-        loyaltyRepository.save(new LoyaltyDomain(uuid2, 120));
+        loyaltyRepository.save(new LoyaltyDomain(uuid2, 60));
 
         String uuid3 = "2c126d5a-96bb-441a-89b0-3a87bba4c6cc";
-        loyaltyRepository.save(new LoyaltyDomain(uuid3, 250));
+        loyaltyRepository.save(new LoyaltyDomain(uuid3, 47));
     }
 
     public LoyaltyDTO getLoyalty(String asd) {

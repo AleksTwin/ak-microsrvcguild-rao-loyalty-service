@@ -8,7 +8,7 @@ import javax.persistence.Id;
 /**
  * @author aleksey.kovalenko@accenture.com
  */
-@Entity
+@Entity(name = "Loyalty")
 public class LoyaltyDomain {
 
     @Id
@@ -16,9 +16,6 @@ public class LoyaltyDomain {
     private Long id;
     private String uuid;
     private Integer loyaltyPoints;
-
-    public LoyaltyDomain() {
-    }
 
     public LoyaltyDomain(String uuid, Integer loyaltyPoints) {
         this.uuid = uuid;
