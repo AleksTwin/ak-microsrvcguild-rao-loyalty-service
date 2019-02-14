@@ -29,12 +29,12 @@ public class LoyaltyService {
         loyaltyRepository.save(new LoyaltyDomain(uuid3, 47));
     }
 
-    public LoyaltyDTO getLoyalty(String asd) {
-        Optional<LoyaltyDomain> ld = Optional.ofNullable(loyaltyRepository.findByUuid(asd));
-
+    public LoyaltyDTO getLoyalty(String uuid) {
         LoyaltyDTO loyaltyDTO = new LoyaltyDTO();
+        loyaltyDTO.setUuid(uuid);
+
+        Optional<LoyaltyDomain> ld = Optional.ofNullable(loyaltyRepository.findByUuid(uuid));
         ld.ifPresent((domain) -> {
-            loyaltyDTO.setUuid(domain.getUuid());
             loyaltyDTO.setLoyaltyPoints(domain.getLoyaltyPoints());
         });
 

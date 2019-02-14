@@ -1,6 +1,5 @@
 package loyalty.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 
 /**
@@ -9,10 +8,8 @@ import io.swagger.annotations.ApiModel;
 @ApiModel
 public class LoyaltyDTO {
 
-    @JsonProperty
-    String uuid;
-    @JsonProperty
-    Integer loyaltyPoints;
+    private String uuid;
+    private Integer loyaltyPoints = 0;
 
 
     public String getUuid() {

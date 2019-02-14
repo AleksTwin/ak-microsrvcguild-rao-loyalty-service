@@ -17,6 +17,9 @@ public class LoyaltyDomain {
     private String uuid;
     private Integer loyaltyPoints;
 
+    public LoyaltyDomain() {
+    }
+
     public LoyaltyDomain(String uuid, Integer loyaltyPoints) {
         this.uuid = uuid;
         this.loyaltyPoints = loyaltyPoints;
